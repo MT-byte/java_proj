@@ -25,7 +25,7 @@ pipeline {
     post {
         success {
             archiveArtifacts allowEmptyArchive: true,
-            artifacts: '**/java_proj*.jar'
+            artifacts: 'java_proj*.jar'
         }
     }
 
