@@ -19,12 +19,17 @@ pipeline {
                 sh "mvn exec:java"
             }
         }
+        stage('Package') {
+            steps {
+                sh "mvn jar:jar"
+            }
+        }
     }
 
     post {
         success {
             archiveArtifacts allowEmptyArchive: true,
-            artifacts: 'target/**'
+            artifacts: '**/java_proj*.jar'
         }
     }
 
