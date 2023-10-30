@@ -9,10 +9,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                //sh "mvn clean:clean"
-                //sh "mvn dependency:copy-dependencies"
-                //sh "mvn compiler:compile"
-                sh "mvn -X clean compile"
+                sh "mvn clean:clean"
+                sh "mvn dependency:copy-dependencies"
+                sh "mvn compiler:compile"
             }
         }
         stage('Exec') {
@@ -25,7 +24,7 @@ pipeline {
     post {
         success {
             archiveArtifacts allowEmptyArchive: true,
-            artifacts: '*java_proj*.jar'
+            artifacts: '*.jar'
         }
     }
 
