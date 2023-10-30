@@ -9,9 +9,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "mvn clean:clean"
+                //sh "mvn clean:clean"
                 //sh "mvn dependency:copy-dependencies"
-                sh "mvn compiler:compile"
+                //sh "mvn compiler:compile"
+                sh "mvn -X clean compile"
             }
         }
         stage('Exec') {
